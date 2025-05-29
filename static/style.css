@@ -3,7 +3,22 @@
   font-family: 'Open Sans';
   --text-primary: #d1d3c8;
   --text-glow: #f6fcdf;
-  --bg-primary: #373739;
+  --bg-primary: #;
   --bg-secondary: #1a1a19;
   --transition-speed: 600ms;
 }
+ body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+ main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
