@@ -1,0 +1,9 @@
+:root {
+  font-size: 1rem;
+  font-family: 'Open Sans';
+  --text-primary: #d1d3c8;
+  --text-glow: #f6fcdf;
+  --bg-primary: #373739;
+  --bg-secondary: #1a1a19;
+  --transition-speed: 600ms;
+}
