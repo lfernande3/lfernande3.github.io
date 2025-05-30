@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top</title>
+    <style>
+        body {
+            font-family: Helvetica;
+            background-color: #250f0f;
+            min-height: 100vh;
+            max-width: 100%;
+            padding: 0;
+        }
+        nav {
+            background: whitesmoke;
+        }
+        nav ul {
+            width: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        nav li {
+            height: 50px;
+        }
+        nav a {
+            height: 100%;
+            padding: 0 30px;
+            text-decoration: none;
+            align-items: center;
+            display: flex;
+            color: hsl(0, 0%, 0%);
+        }
+        nav a:hover {
+            background-color: hsl(178, 100%, 50%);
+            color: white;
+        }
+        nav li:first-child {
+            margin-right: auto;
+        }
+        .hero {
+            min-height: 100vh;
+        }
+        .hero-content-left {
+            text-align: left;
+            padding: 50px;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        main {
+            padding: 0rem 5rem;     
+        }
+        .paragraph {
+            padding: 20px;
+            color: white;
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: hsl(178, 100%, 50%);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+        <nav>
+            <ul class="name">
+                <li><a href="/">Lance Fernandez</a></li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    <main>
+        <section class="hero">
+            <section class="hero-content-left">
+                <h1>Welcome to the Top Page</h1>
+                <p>This is the main content of the top page.</p>
+            </section>
+            <section class="hero-image">
+                <img src="https://via.placeholder.com/800x400" alt="Hero Image" style="width: 100%; height: auto;">
+        </section>
+        <section class="paragraph">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem urna, auctor id nibh malesuada, placerat molestie ante. Vivamus suscipit dictum libero et euismod. In sagittis a metus non congue. Aenean in lacus ut ante lobortis efficitur in et turpis. Nulla semper metus ac nulla elementum cursus. Maecenas molestie dapibus egestas. Nulla ex diam, consequat sed feugiat vel, feugiat molestie nisi.</p>
+        </section>
+    </main>
+    <section class="footer">
+        <p>&copy; 2025 Lance Fernandez. All rights reserved.</p>
+    </section>
+</body>
+</html>

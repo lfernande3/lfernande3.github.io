@@ -14,35 +14,69 @@
   background-color: var(--bg);
   color: var(--text-primary);
   transition: background-color var(--transition-speed), color var(--transition-speed);
+  margin:0%;
+  padding: 0%;
+  min-height: 100vh;
+  border:#da7b93 1px solid;
 }
- .header {
-  background-color: var(--heading);
+main{
+  border:#da7b93 1px solid;
+}
+nav {
+  background: transparent;
+  position: fixed;
+  min-width: 100%;
+  height: 50px;
+  border:#da7b93 1px solid;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  height: 50px;
+  margin-right: 1rem;
+}
+nav a {
+  height: 100%;
+  padding: 0 30px;
+  text-decoration: none;
+  align-items: center;
+  display: flex;
   color: var(--text-secondary);
-  transition: background-color var(--transition-speed), color var(--transition-speed);
-  padding: 0rem;
+  font-weight: 600;
+  border:#da7b93 1px solid;
 }
- .main {
-  color: var(--text-primary);
-  transition: color var(--transition-speed);
+nav a:hover {
+  background-color: var(--hover);
+  color: var(--text-glow);
+  color: white;
 }
-.nav {
-  background-color: var(--accent);
+nav li:first-child {
+  margin-right: auto;
+}
+footer {
+  background: transparent;
+  position: fixed;
+  min-width: 100%;
+  border:#da7b93 1px solid;
+}
+h1 {
+  font-size: 5rem;
+  margin: 0;
   color: var(--text-secondary);
-  transition: background-color var(--transition-speed), color var(--transition-speed);
-}
- .footer {
-  background-color: var(--heading);
-  color: var(--text-secondary);
-  transition: background-color var(--transition-speed), color var(--transition-speed);
-}
-.logo {
-  background-color: transparent; /* Ensures the logo has no background */
-  position: fixed; /* Keeps the logo fixed in place */
-  top: 0; /* Aligns it to the top */
-  left: 0; /* Aligns it to the left */
-  width: 100px; /* Adjust width as needed */
-  height: auto; /* Maintains aspect ratio */
-  z-index: 1000; /* Ensures it stays above other elements */
 }
 
-
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  color: var(--text-secondary);
+}
