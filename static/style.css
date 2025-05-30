@@ -36,8 +36,13 @@
   transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 .logo {
-  color: var(--text-glow);
-  transition: color var(--transition-speed);
+  background-color: transparent; /* Ensures the logo has no background */
+  position: fixed; /* Keeps the logo fixed in place */
+  top: 0; /* Aligns it to the top */
+  left: 0; /* Aligns it to the left */
+  width: 100px; /* Adjust width as needed */
+  height: auto; /* Maintains aspect ratio */
+  z-index: 1000; /* Ensures it stays above other elements */
 }
 
 
