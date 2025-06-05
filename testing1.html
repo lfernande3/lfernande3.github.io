@@ -1,98 +1,515 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top</title>
-    <style>
-        body {
-            font-family: Helvetica;
-            background-color: #250f0f;
-            min-height: 100vh;
-            max-width: 100%;
-            padding: 0;
-        }
-        nav {
-            background: whitesmoke;
-        }
-        nav ul {
-            width: 100%;
-            list-style: none;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-        nav li {
-            height: 50px;
-        }
-        nav a {
-            height: 100%;
-            padding: 0 30px;
-            text-decoration: none;
-            align-items: center;
-            display: flex;
-            color: hsl(0, 0%, 0%);
-        }
-        nav a:hover {
-            background-color: hsl(178, 100%, 50%);
-            color: white;
-        }
-        nav li:first-child {
-            margin-right: auto;
-        }
-        .hero {
-            min-height: 100vh;
-        }
-        .hero-content-left {
-            text-align: left;
-            padding: 50px;
-        }
-        a {
-            text-decoration: none;
-            color: white;
-        }
-        main {
-            padding: 0rem 5rem;     
-        }
-        .paragraph {
-            padding: 20px;
-            color: white;
-            font-size: 1.2rem;
-            line-height: 1.5;
-        }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background-color: hsl(178, 100%, 50%);
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Pragadeswaran | Bento Portfolio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <style>
+    :root {
+      --primary: #7B3FE4;
+      --bg: #f5f6fa;
+      --card: #fff;
+      --text: #181A1B;
+      --text-light: #5c5e62;
+      --border: #ececec;
+      --radius: 16px;
+      --accent: #F5EFFF;
+      --shadow: 0 2px 16px rgba(123,63,228,0.06);
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      background: var(--card);
+      box-shadow: var(--shadow);
+      padding: 18px 0 12px 0;
+      position: sticky;
+      top: 0; z-index: 10;
+    }
+    .container {
+      width: 96%;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 30px;
+    }
+    nav a {
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1.09rem;
+      border-radius: 8px;
+      padding: 6px 12px;
+      transition: background .18s;
+    }
+    nav a:hover {
+      background: var(--accent);
+    }
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: masonry;
+      gap: 24px;
+      margin-top: 38px;
+      margin-bottom: 60px;
+    }
+    .bento-box {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px 22px 24px 22px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      border: 1.5px solid var(--border);
+      overflow: hidden;
+      min-width: 0;
+      min-height: 0;
+    }
+    /* Bento layout positions */
+    .about      { grid-column: span 2; grid-row: span 2; }
+    .stacks     { grid-column: span 2; grid-row: span 1; }
+    .numbers    { grid-column: span 2; grid-row: span 1; flex-direction: row; gap: 22px; }
+    .services   { grid-column: span 2; grid-row: span 2; }
+    .projects   { grid-column: span 3; grid-row: span 2; }
+    .testimonials{grid-column: span 3; grid-row: span 1; }
+    .workflow   { grid-column: span 3; grid-row: span 1; }
+    .contact    { grid-column: span 6; grid-row: span 1; margin-top: 8px; align-items: center;}
+    /* About avatar */
+    .avatar {
+      width: 72px;
+      height: 72px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      border: 2.5px solid #fff;
+      box-shadow: 0 2px 8px rgba(123,63,228,0.09);
+      margin-bottom: 15px;
+    }
+    .about-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .about-desc {
+      font-size: 1.04rem;
+      color: var(--text-light);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .about-detail {
+      font-size: .97rem;
+      color: var(--text-light);
+      margin-bottom: 13px;
+      display: flex;
+      gap: 10px 20px;
+      flex-wrap: wrap;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .hero-cta a {
+      background: var(--primary);
+      color: #fff;
+      padding: 7px 18px;
+      border-radius: 7px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background .18s;
+      box-shadow: 0 2px 8px rgba(123,63,228,.09);
+      border: none;
+      outline: none;
+      display: inline-block;
+    }
+    .hero-cta a.secondary {
+      background: #fff;
+      color: var(--primary);
+      border: 1.2px solid var(--primary);
+    }
+    .socials {
+      display: flex;
+      gap: 11px;
+      margin-top: 10px;
+    }
+    .social-link {
+      color: var(--primary);
+      font-size: 1.4rem;
+      background: #f7f1fd;
+      border-radius: 50%;
+      width: 34px; height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s;
+      text-decoration: none;
+    }
+    .social-link:hover { background: var(--primary); color: #fff; }
+    /* Stacks */
+    .stacks-list {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
+    .stack {
+      background: var(--accent);
+      border-radius: 7px;
+      padding: 11px 17px;
+      font-size: 1.02rem;
+      font-weight: 600;
+      min-width: 88px;
+      text-align: center;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+    /* Numbers */
+    .numbers {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 21px;
+      margin: 0;
+    }
+    .number-box {
+      background: #f7f1fd;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 85px;
+    }
+    .number-label {
+      font-size: .99rem;
+      color: var(--text-light);
+      font-weight: 500;
+      margin-top: 3px;
+    }
+    /* Services */
+    .services-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+    }
+    .service {
+      background: var(--accent);
+      border-radius: 8px;
+      padding: 12px 13px;
+      min-width: 100px;
+      font-weight: 600;
+      font-size: .99rem;
+      color: var(--primary);
+      margin-bottom: 7px;
+      text-align: center;
+      border: 1px solid var(--primary);
+    }
+    /* Projects */
+    .projects-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-start;
+    }
+    .project-card {
+      background: #f7f1fd;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(123,63,228,0.03);
+      padding: 16px 12px 12px 12px;
+      min-width: 110px;
+      flex: 1 1 110px;
+      border: 1px solid var(--primary);
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 6px;
+    }
+    .project-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .project-desc {
+      color: var(--text-light);
+      font-size: .93rem;
+      margin-bottom: 5px;
+    }
+    .project-link {
+      font-size: .93rem;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: underline dotted;
+    }
+    /* Testimonials */
+    .testimonials-list {
+      display: flex;
+      flex-direction: row;
+      gap: 13px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    .testimonial {
+      background: #f7f1fd;
+      border-radius: 10px;
+      padding: 13px 12px 10px 14px;
+      flex: 1 1 100px;
+      min-width: 105px;
+      box-shadow: 0 2px 8px rgba(123,63,228,0.06);
+      border-left: 4px solid var(--primary);
+      border: 1px solid var(--primary);
+      font-size: .97rem;
+    }
+    .testimonial-text {
+      font-style: italic;
+      color: var(--text-light);
+      margin-bottom: 7px;
+    }
+    .testimonial-meta {
+      font-size: .97rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    /* Workflow */
+    .workflow-list {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    .workflow-step {
+      background: var(--accent);
+      border-radius: 8px;
+      padding: 10px 19px;
+      min-width: 85px;
+      text-align: center;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: .98rem;
+      border: 1px solid var(--primary);
+      margin-bottom: 7px;
+    }
+    /* Contact */
+    .contact-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 7px;
+    }
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      justify-content: center;
+      margin-top: 11px;
+    }
+    .contact-actions a {
+      background: var(--primary);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 7px;
+      font-weight: 600;
+      transition: background .16s;
+      box-shadow: 0 2px 8px rgba(123,63,228,.10);
+      display: inline-block;
+      font-size: 1rem;
+    }
+    .contact-actions a.secondary {
+      background: #fff;
+      color: var(--primary);
+      border: 1.2px solid var(--primary);
+    }
+    /* Section Titles */
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 9px;
+      letter-spacing: 0.01em;
+    }
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .bento-grid { grid-template-columns: repeat(3, 1fr);}
+      .about, .services, .projects, .testimonials, .workflow { grid-column: span 3; }
+      .stacks, .numbers { grid-column: span 1; }
+      .contact { grid-column: span 3;}
+    }
+    @media (max-width: 700px) {
+      .container { width: 99%; }
+      .bento-grid { grid-template-columns: 1fr; gap: 17px;}
+      .bento-box, .about, .projects, .services, .numbers, .testimonials, .workflow, .contact {
+        grid-column: span 1 !important;
+        padding: 19px 6vw 17px 6vw;
+      }
+      .hero-cta { flex-direction: column; gap: 6px; align-items: flex-start;}
+      .numbers { flex-direction: column; gap: 8px; align-items: flex-start;}
+      .projects-gallery, .testimonials-list, .services-list, .workflow-list, .stacks-list {
+        flex-direction: column;
+        gap: 7px;
+      }
+    }
+    footer {
+      margin-top: 25px;
+      padding: 20px 0 13px 0;
+      background: var(--card);
+      text-align: center;
+      color: var(--text-light);
+      font-size: 1rem;
+      border-top: 1px solid var(--border);
+    }
+  </style>
 </head>
 <body>
-        <nav>
-            <ul class="name">
-                <li><a href="/">Lance Fernandez</a></li>
-                <li><a href="/projects">Projects</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
-    <main>
-        <section class="hero">
-            <section class="hero-content-left">
-                <h1>Welcome to the Top Page</h1>
-                <p>This is the main content of the top page.</p>
-            </section>
-            <section class="hero-image">
-                <img src="https://via.placeholder.com/800x400" alt="Hero Image" style="width: 100%; height: auto;">
-        </section>
-        <section class="paragraph">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem urna, auctor id nibh malesuada, placerat molestie ante. Vivamus suscipit dictum libero et euismod. In sagittis a metus non congue. Aenean in lacus ut ante lobortis efficitur in et turpis. Nulla semper metus ac nulla elementum cursus. Maecenas molestie dapibus egestas. Nulla ex diam, consequat sed feugiat vel, feugiat molestie nisi.</p>
-        </section>
-    </main>
-    <section class="footer">
-        <p>&copy; 2025 Lance Fernandez. All rights reserved.</p>
-    </section>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#about">About</a>
+        <a href="#works">Works</a>
+        <a href="#services">Services</a>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <div class="bento-grid">
+      <!-- About -->
+      <div class="bento-box about" id="about">
+        <div class="avatar" aria-label="Profile">P</div>
+        <div class="about-title">Pragadeswaran</div>
+        <div class="about-desc">
+          I'm a Software Engineer based in India.<br>
+          6+ Years Expertise | MIT University<br>
+          Fluent in English & Tamil.<br>
+          Available to work!
+        </div>
+        <div class="about-detail">
+          <span>India 🇮🇳</span>
+          <span>IST</span>
+          <span>English & Tamil</span>
+        </div>
+        <div class="hero-cta">
+          <a href="mailto:pragadeswaran@email.com">Email Me</a>
+          <a href="#contact" class="secondary">Schedule a Call</a>
+        </div>
+        <div class="socials" aria-label="Social Links">
+          <a class="social-link" href="https://t.me/praha37v" target="_blank" title="Telegram">Tg</a>
+          <a class="social-link" href="https://wa.me/1234567890" target="_blank" title="WhatsApp">WA</a>
+        </div>
+      </div>
+      <!-- Stacks -->
+      <div class="bento-box stacks">
+        <div class="section-title">Tech Arsenal</div>
+        <div class="stacks-list">
+          <div class="stack">Framer</div>
+          <div class="stack">Webflow</div>
+          <div class="stack">Figma</div>
+          <div class="stack">Shopify</div>
+        </div>
+      </div>
+      <!-- Numbers -->
+      <div class="bento-box numbers">
+        <div class="number-box">
+          56+ <div class="number-label">Projects</div>
+        </div>
+        <div class="number-box">
+          23+ <div class="number-label">Happy Clients</div>
+        </div>
+        <div class="number-box">
+          06+ <div class="number-label">Year Expertise</div>
+        </div>
+      </div>
+      <!-- Services -->
+      <div class="bento-box services" id="services">
+        <div class="section-title">Solutions Suite</div>
+        <div class="services-list">
+          <div class="service">Mobile App Design</div>
+          <div class="service">Web Development</div>
+          <div class="service">Web Design</div>
+          <div class="service">Framer Development</div>
+          <div class="service">Webflow Development</div>
+          <div class="service">SEO Optimization</div>
+        </div>
+      </div>
+      <!-- Projects / Works -->
+      <div class="bento-box projects" id="works">
+        <div class="section-title">Works Gallery</div>
+        <div class="projects-gallery">
+          <div class="project-card">
+            <div class="project-title">Personal Portfolio</div>
+            <div class="project-desc">A modern & interactive portfolio template built for creative professionals.</div>
+            <a class="project-link" href="#">View Project</a>
+          </div>
+          <div class="project-card">
+            <div class="project-title">E-commerce Store</div>
+            <div class="project-desc">Custom Shopify theme for a boutique brand with focus on UX and conversions.</div>
+            <a class="project-link" href="#">View Project</a>
+          </div>
+          <div class="project-card">
+            <div class="project-title">Startup Landing Page</div>
+            <div class="project-desc">Conversion-focused landing page with Webflow for a SaaS startup.</div>
+            <a class="project-link" href="#">View Project</a>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonials -->
+      <div class="bento-box testimonials">
+        <div class="section-title">Rave Reviews Showcase</div>
+        <div class="testimonials-list">
+          <div class="testimonial">
+            <div class="testimonial-text">
+              "Pragadesh's design skills are unparalleled. He transformed my vague ideas into a stunning website that perfectly represents my brand."
+            </div>
+            <div class="testimonial-meta">Sarah Johnson, NYC<br><small>11, Feb 2024</small></div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-text">
+              "Working with Pragadesh was a breeze. He delivered a sleek and functional website and provided excellent support."
+            </div>
+            <div class="testimonial-meta">David Smith, London<br><small>21, Jan 2024</small></div>
+          </div>
+        </div>
+      </div>
+      <!-- Workflow -->
+      <div class="bento-box workflow">
+        <div class="section-title">Workflow Highlights</div>
+        <div class="workflow-list">
+          <div class="workflow-step">Goals & Objectives</div>
+          <div class="workflow-step">Research</div>
+          <div class="workflow-step">Wireframe</div>
+          <div class="workflow-step">Prototyping</div>
+          <div class="workflow-step">Finalize Design</div>
+        </div>
+      </div>
+      <!-- Contact -->
+      <div class="bento-box contact" id="contact">
+        <div class="contact-title">Let's Make Magic Happen Together!</div>
+        <div>Ready to collaborate or have a project in mind? <br>
+        Get in touch:</div>
+        <div class="contact-actions">
+          <a href="mailto:pragadeswaran@email.com">Email Me</a>
+          <a href="https://t.me/praha37v" target="_blank" class="secondary">Telegram Me</a>
+          <a href="https://wa.me/1234567890" target="_blank" class="secondary">WhatsApp Me</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    @2024 All Rights Reserved | Template by Praha
+  </footer>
 </body>
 </html>
