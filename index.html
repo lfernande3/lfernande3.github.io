@@ -3,25 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Lance Page</title>
+    <title>Lance S. Fernandez</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-        </ul>
-    </nav>
-    <section class="profile">
-        <img src="assets/pfp2.jpg" class="profile-image">
-        <div class="profile-text">
-            <div class="blink">Available to Work</div>
-            <h2>Lance S. Fernandez</h2>
+    <!-- <article class="profile">
+        <div class="profile__content">
+            <p>Available to Work</p>
+            <h1>Lance S. Fernandez</h1>
             <h3>Full-Stack Developer</h3>
+
+            <div class="profile__tags">
+                
+            </div>
+            
         </div>
-    </section>
+    </article> -->
+    <main>
+        <div class="background"></div>
+        <section class="hero">
+            <h1>Lance S. Fernandez</h1>
+            <h2>Full-Stack Developer</h2>
+        </section>
+        <article class="skills">
+            <h2>Skills</h2>
+            <ul class="skills__list">
+                <li class="skills__item">Penis</li>
+                <li class="skills__item">Cock</li>
+                <li class="skills__item">Bing</li>
+                <li class="skills__item">Bong</li>
+                <li class="skills__item">Skill</li>
+                <li class="skills__item">Express.js</li>
+                <li class="skills__item">Tong Fuk is a fuckass place</li>
+                <li class="skills__item">Git</li>
+            </ul>
+        </article>
+        <article class="projects">
+            <h2>Projects</h2>
+            <ul class="projects__list">
+                <li class="projects__item">
+                    <h3>EcoTrack</h3>
+                    <p>BIG DATA RUBBISH BIN</p>
+                </li>
+            </ul>
+        </article>
+        <article class="work">
+            <h2>Work Experience</h2>
+            <ul>
+
+            </ul>
+        </article>
+    </main>
+    <script>
+        window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const blurValue = Math.min(scrollY / 100, 10); // Cap blur at 10px
+        document.querySelector('.background').style.filter = `blur(${blurValue}px)`;
+        });
+    </script>
 </body>
 </html>
