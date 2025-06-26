@@ -33,7 +33,6 @@ main {
 
 .profile__icon {
   height: 5rem;
-  border-radius: 50%; /* Optional: makes the image circular */
 }
 .contacts{
   display: flex;
@@ -41,11 +40,15 @@ main {
   gap: 1rem;
   padding: 1rem;
 }
+a{
+  text-decoration: none;
+  color: whitesmoke;
+}
 .button {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: .5rem 1rem;
+  padding: 0 1rem;
   gap: 15px;
   background-color: #181717;
   outline: 3px #181717 solid;
@@ -71,13 +74,6 @@ main {
   background-color: transparent;
 }
 
-.button:hover .text {
-  color: #181717;
-}
-
-.button:hover svg path {
-  fill: #181717;
-}
 .right {
   overflow-y: auto; /* Enable vertical scrolling */
   padding: 1rem;
